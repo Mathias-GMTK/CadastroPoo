@@ -1,13 +1,17 @@
 package cadastro.com.poo.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "filme")
 public class Filme {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
     private String genero;
     private Long duracao;
