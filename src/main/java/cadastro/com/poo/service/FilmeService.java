@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FilmeService {
@@ -34,9 +35,17 @@ public class FilmeService {
 
     }
 
-    public void deletarFilme(Filme filme){
-        filmeRepository.delete(filme);
+    public void deletarFilme(){
+        filmeRepository.deleteAll();
     }
 
 
+    /*
+    public Optional<Filme> obterFilmeAleatorio(){
+        var lista = findAll();
+        if(lista.isEmpty()){return Optional.empty();}
+        return Optional.of(lista.get((int)(Math.random()*lista.size())));
+    }
+
+     */
 }
