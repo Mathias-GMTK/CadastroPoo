@@ -1,20 +1,36 @@
 package cadastro.com.poo.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
+@Table(name = "filme")
 public class Filme {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
-    private String categoria;
+    private String genero;
+    private Long duracao;
+    private String sinopse;
+    private LocalDate dataLancamento;
+
+    public Filme() {
+    }
+
+    public Filme(String nome, String genero, Long duracao, String sinopse, LocalDate dataLancamento) {
+        this.nome = nome;
+        this.genero = genero;
+        this.duracao = duracao;
+        this.sinopse = sinopse;
+        this.dataLancamento = dataLancamento;
+    }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -25,11 +41,35 @@ public class Filme {
         this.nome = nome;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public Long getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(Long duracao) {
+        this.duracao = duracao;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
 }
