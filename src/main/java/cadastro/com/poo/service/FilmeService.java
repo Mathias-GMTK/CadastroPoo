@@ -30,7 +30,12 @@ public class FilmeService {
         filme.setSinopse(sinopse);
         filme.setDataLancamento(dataLancamento);
 
+        filmeRepository.save(filme);
 
+    }
+
+    public void deletarFilme(Filme filme){
+        filmeRepository.delete(filme);
     }
 
 
