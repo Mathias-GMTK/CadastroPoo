@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/home")
 public class HomeController {
 
     private final FilmeService filmeService;
@@ -21,20 +21,5 @@ public class HomeController {
     public String home(){
         return "index";
     }
-
-    @GetMapping
-    @RequestMapping("/adicionar-filme")
-    public ModelAndView adicionarFilme(){
-        filmeService.adicionarFilme();
-        return new ModelAndView("redirect:/filme");
-    }
-
-    @GetMapping
-    @RequestMapping("/deletar-filme")
-    public ModelAndView deletarFilme(){
-        filmeService.deletarFilme();
-        return new ModelAndView("redirect:/filme");
-    }
-
 
 }
