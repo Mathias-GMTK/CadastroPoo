@@ -21,15 +21,9 @@ public class FilmeController {
 
     @GetMapping
     public ModelAndView index(){
-        var mv = new ModelAndView("filmes/index");
+        var mv = new ModelAndView("filme/index");
+        var listaDeFilmes = filmeService.findAll();
+        mv.addObject("Filmes", listaDeFilmes);
         return mv;
     }
-
-    @GetMapping("/agrupado_por_genero")
-    public ModelAndView agrupadoGenero(){
-        var mv = new ModelAndView("filmes/agrupado_por_genero");
-    }
-
-
-
 }
